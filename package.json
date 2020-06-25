@@ -1,0 +1,29 @@
+{
+  "name": "to-do-list",
+  "version": "1.0.0",
+  "description": "A web application of traking to-do list",
+  "main": "index.js",
+  "scripts": {
+    "start" : "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yishnu96/to-do-list.git"
+  },
+  "keywords": [
+    "to-do",
+    "list"
+  ],
+  "author": "Yishnu Pramanik",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yishnu96/to-do-list/issues"
+  },
+  "homepage": "https://github.com/yishnu96/to-do-list#readme",
+  "dependencies": {
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.20"
+  }
+}
