@@ -8,15 +8,23 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossorigin="anonymous">
 </head>
 <body>
+    <main>
     <h1>
         <%= header %>
     </h1>
     <div>
-        <form action="/create-list" method="post">
-            <input type="text" name="name" placeholder="Enter Task" required>
-            <input type="date" name="date" >
-            <input type="time" name="time">
-            <input type="number" name="type">
+        <form action="/create-list" method="post" class="form" >
+            <input type="text" name="name" placeholder="Enter Task" required id="name">
+            <input type="date" name="date" id="date">
+            <input type="time" name="time" id="time">
+            <select id="items" name="type" id="type">
+                <option value="Work"> Work</option>
+                <option value="Home"> Home</option>
+                <option value="Personal">Personal</option>
+                <option value="Health">Health</option>
+                <option value="Other">Other</option>
+            </select>
+            <br>
             <button type="submit">Add Task</button>
         </form>  
     </div>
@@ -24,17 +32,18 @@
         <table>
             <% for (let i of todo_list) { %> 
                 <tr>
+                    <td> <input type="checkbox" id="task1" class="custom-checkbox"> </td>
                     <td> <%= i.name %> </td>
                     <td><p> <%= i.date %> </p> <p> <%= i.time%> </p> </td>
                     <td> <%= i.type %>  </td>
-                    <td> 
-                        <a href="/delete-task/?id=<%= i.id %>">
+                    <td><a href="/delete-task/?id=<%= i.id %>">
                             <i class="fas fa-minus-circle"></i>
-                        </a>
+                        </a> 
                     </td>
                 </tr>
             <%}%>
         </table>
+    </main>
         
         <script type="text/javascript" src="javascript/home.js"></script>
     </div>
