@@ -17,7 +17,7 @@
             <input type="text" name="name" placeholder="Enter Task" required id="name">
             <input type="date" name="date" id="date">
             <input type="time" name="time" id="time">
-            <select id="items" name="type" id="type">
+            <select id="items" name="type">
                 <option value="Work"> Work</option>
                 <option value="Home"> Home</option>
                 <option value="Personal">Personal</option>
@@ -25,18 +25,29 @@
                 <option value="Other">Other</option>
             </select>
             <br>
-            <button type="submit">Add Task</button>
+            <button type="submit" id="button">Add Task</button>
         </form>  
     </div>
-    <div >
-        <table>
+    <div id="line"></div>
+    <div class="display">
+        <table class="table">
             <% for (let i of todo_list) { %> 
                 <tr>
-                    <td> <input type="checkbox" id="task1" class="custom-checkbox"> </td>
-                    <td> <%= i.name %> </td>
-                    <td><p> <%= i.date %> </p> <p> <%= i.time%> </p> </td>
-                    <td> <%= i.type %>  </td>
-                    <td><a href="/delete-task/?id=<%= i.id %>">
+                    <td> 
+                        <input type="checkbox" id="task1" class="custom-checkbox"> 
+                    </td>
+                    <td> 
+                        <%= i.name %> 
+                    </td>
+                    <td>
+                        <p> <%= i.date %> </p> 
+                        <p style="font-size: 8px;"> <%= i.time%> </p> 
+                    </td>
+                    <td> 
+                       <div class="tbl-type"> <%= i.type %> </div>   
+                    </td>
+                    <td>
+                        <a href="/delete-task/?id=<%= i.id %>">
                             <i class="fas fa-minus-circle"></i>
                         </a> 
                     </td>
@@ -44,7 +55,6 @@
             <%}%>
         </table>
     </main>
-        
         <script type="text/javascript" src="javascript/home.js"></script>
     </div>
 
