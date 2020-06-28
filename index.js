@@ -2,40 +2,16 @@ var express = require('express')
 const path = require('path');
 const port = 8000;
 const db = require('./config/mongoose');        // Connecting To database
-const List = require('./models/List');          //Database Sechma
+const List = require('./models/List');          //Database Secham 
 const app = express();
 
-app.set('view engine', 'ejs');              // viewing engins
-app.set('views', path.join(__dirname, 'views'));        //parth
+app.set('view engine', 'ejs');              // viewing engin 
+app.set('views', path.join(__dirname, 'views'));        //path
 app.use(express.urlencoded());              //dcodes data from webpages
 app.use(express.static('assets'));          //static file storage like CSS nas JS
 
 
-// var  TaskList = [
-//     {
-//         name: "Arpan",
-//         date: 2012-04-23,
-//         time : 12,
-//         type : "meeting"
-//     },
-//     {
-//         name: "Tony Stark",
-//         date : 2016-05-19,
-//         type : "personal"
-//     },
-//     {
-//         name: "Coding Ninjas",
-//         date : 2016-05-24,
-//         type : "other"
-//     }
-// ]
-
-
 app.get('/',function(req,res){
-    // return res.render('home', { 
-    //     header: "TO-DO List",
-    //     todo_list : TaskList
-    // })
 
     List.find({}, function(err, List){
         if(err){
@@ -51,18 +27,13 @@ app.get('/',function(req,res){
     })
 })
 
+
 //Creating task
 app.post('/create-list',function(req,res){
     // List.push(req.body);
     console.log(req.body);
 
-    List.create({
-        name : req.body.name,
-        date : req.body.date,
-        time : req.body.time,
-        type : req.body.type
-
-    },function(err, newContact){
+    List.create(req.body,function(err, newContact){
         if(err){console.log('Error in creating a contact!') 
             return;
         }
@@ -70,6 +41,8 @@ app.post('/create-list',function(req,res){
     return res.redirect('back');
     })
 })
+
+
 //delete task
 app.get('/delete-task',function(req,res){
     console.log(req.query)
@@ -85,6 +58,7 @@ app.get('/delete-task',function(req,res){
     });
 
 })
+
 
 // Port listening
 app.listen(port, function(err){
