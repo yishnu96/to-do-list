@@ -21,6 +21,7 @@
                 <option value="Work"> Work</option>
                 <option value="Home"> Home</option>
                 <option value="Personal">Personal</option>
+                <option value="Child"> Child </option>
                 <option value="Health">Health</option>
                 <option value="Other">Other</option>
             </select>
@@ -37,14 +38,38 @@
                         <input type="checkbox" id="task1" class="custom-checkbox"> 
                     </td>
                     <td> 
-                        <%= i.name %> 
+                        <label for = "task1" ><%= i.name %></label> 
                     </td>
                     <td>
                         <p> <%= i.date %> </p> 
                         <p style="font-size: 8px;"> <%= i.time%> </p> 
                     </td>
                     <td> 
-                       <div class="tbl-type"> <%= i.type %> </div>   
+                        <% if(i.type == "Work"){ %>
+                            <div id="task_type" class="red">
+                                <%=i.type%>
+                            </div>
+                        <%} else if (i.type == "Personal"){ %>
+                            <div id="task_type" class="darkviolet">
+                                <%=i.type%>
+                            </div>
+                        <% } else if (i.type == "Home"){ %>
+                            <div id="task_type" class="yellow">
+                                <%=i.type%>
+                            </div>
+                        <% } else if (i.type  == "Health"){ %>
+                            <div id="task_type" class="orange">
+                                <%=i.type%>
+                            </div>
+                        <% } else if (i.type == "Other"){ %>
+                            <div id="task_type" class="green">
+                                <%= i.type %>
+                            </div>
+                        <% } else if (i.type == "Child"){ %>
+                            <div id="task_type" class="grey">
+                                <%= i.type %>
+                            </div>
+                        <% } %>
                     </td>
                     <td>
                         <a href="/delete-task/?id=<%= i.id %>">
@@ -60,3 +85,23 @@
 
 </body>
 </html>
+
+
+
+<!-- 
+$('#packersOff').change(function() {
+  if ($('#packersOff').prop('checked') ) {
+    $('#test').css('text-decoration','line-through');
+  }
+}); -->
+
+<!-- 
+<div class="form-group ">
+	<label for="inputName" class="col-md-1 control-label">select</label>  
+    <div class="col-md-5">
+		<div class="checkbox">
+            <label for="packersOff" id="test">sssssssss</label>
+            <input type="checkbox" name="packersOff" id="packersOff" class="strikethrough" value="1" />
+        </div>
+     </div>
+</div>  -->

@@ -75,13 +75,14 @@ app.get('/delete-task',function(req,res){
     console.log(req.query)
     let id = req.query.id
 
-    List.findOneAndDelete(id, function(err){
+    List.findByIdAndDelete(id, function(err){
         if(err){
-            console.log('Cannot Delete The Task');
+            console.log('error in deleting object from database');
             return;
         }
+
         return res.redirect('back');
-    })
+    });
 
 })
 
