@@ -106,11 +106,12 @@ h1{
     height: 40px;
 }
 /* For checkboxes try this*/
-
- input[type="checkbox"]:checked{
-    color: red;
-    font-weight: bolder;
+/* this  + operator to apply css to label  why we put in same td bcz + only works for siblings ok remember this ...even ~ operator  */
+ input[type=checkbox]:checked ~label.line{
     text-decoration:line-through;
+}
+input[type=checkbox]:checked + td.line{
+    text-decoration: line-through;
 }
 /* For table  */
 
@@ -165,17 +166,26 @@ p{
     background-color: rgba(192, 38, 38, 0.712);
 }
 .darkviolet{
-    background-color:rgba(117, 81, 131, 0.623);
+    background-color:rgba(111, 81, 131, 0.719);
 }
 .yellow{
-    background-color:rgba(218, 169, 34, 0.685);
+    background-color:rgba(226, 174, 29, 0.726);
 }
 .orange{
-    background-color: rgba(177, 102, 75, 0.548);
+    background-color: rgba(177, 75, 75, 0.603);
 }
 .green{
     background-color: rgba(59, 165, 59, 0.678);
 }
 .grey{
-    background-color: rgba(102, 102, 102, 0.637);
+    background-color: rgba(199, 64, 176, 0.637);
+}
+
+.date{
+    color: rgba(38, 48, 192, 0.712);
+}
+
+.custom-checkbox{
+    border: 50%;
+    background-color: #a09b9b;
 }

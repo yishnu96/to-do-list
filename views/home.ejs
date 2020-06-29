@@ -35,14 +35,15 @@
             <% for (let i of todo_list) { %> 
                 <tr>
                     <td> 
-                        <input type="checkbox" id="task1" class="custom-checkbox"> 
+                        <input type="checkbox" id="<%= i.id%>"   class="custom-checkbox"> 
+                        <label for = "<%= i.id%>" class="line" ><%= i.name %> </label> 
+
                     </td>
-                    <td> 
-                        <label for = "task1" ><%= i.name %></label> 
-                    </td>
+                    <!-- <td>  -->
+                    <!-- </td> -->
                     <td>
-                        <p> <%= i.date %> </p> 
-                        <p style="font-size: 8px;"> <%= i.time%> </p> 
+                        <p class="date" > <%= i.date %> </p> 
+                        <p style="font-size: 8px;" > <%= i.time%> </p> 
                     </td>
                     <td> 
                         <% if(i.type == "Work"){ %>
